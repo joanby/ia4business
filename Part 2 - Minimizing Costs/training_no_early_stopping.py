@@ -1,10 +1,10 @@
-# Inteligencia Artifical aplicada a Negocios y Empresas - Caso Pr·ctico 2
+# Inteligencia Artifical aplicada a Negocios y Empresas - Caso Pr√°ctico 2
 # Fase de entrenamiento de la IA
 
-# InstalaciÛn de las librerÌ≠as necesarias
+# Instalaci√≥n de las librer√≠¬≠as necesarias
 # conda install -c conda-forge keras
 
-# Importar las librerÌ≠as y otros ficheros de python
+# Importar las librer√≠¬≠as y otros ficheros de python
 import os
 import numpy as np
 import random as rn
@@ -18,7 +18,7 @@ os.environ['PYTHONHASHSEED'] = '0'
 np.random.seed(42)
 rn.seed(12345)
 
-# CONFIGURACI”N DE LOS PAR¡METROS 
+# CONFIGURACI√ìN DE LOS PAR√ÅMETROS 
 epsilon = 0.3
 number_actions = 5
 direction_boundary = (number_actions -1)/2
@@ -27,16 +27,16 @@ max_memory = 3000
 batch_size = 512
 temperature_step = 1.5
 
-# CONSTRUCCI”N DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT
-env = environment.Environtment(optimal_temperature = (18.0, 24.0), initial_month = 0, initial_number_users = 20, initial_rate_data = 30)
+# CONSTRUCCI√ìN DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT
+env = environment.Environment(optimal_temperature = (18.0, 24.0), initial_month = 0, initial_number_users = 20, initial_rate_data = 30)
 
-# CONSTRUCCI”N DEL CEREBRO CREANDO UN OBJETO DE LA CLASE BRAIN
+# CONSTRUCCI√ìN DEL CEREBRO CREANDO UN OBJETO DE LA CLASE BRAIN
 brain = brain.Brain(learning_rate = 0.00001, number_actions = number_actions)
 
-# CONSTRUCCI”N DEL MODELO DQN CREANDO UN OBJETO DE LA CLASE DQN
+# CONSTRUCCI√ìN DEL MODELO DQN CREANDO UN OBJETO DE LA CLASE DQN
 dqn = dqn.DQN(max_memory = max_memory, discount_factor = 0.9)
 
-# ELECCI”N DEL MODO DE ENTRENAMIENTO
+# ELECCI√ìN DEL MODO DE ENTRENAMIENTO
 train = True
 
 # ENTRENAR LA IA
@@ -44,9 +44,9 @@ env.train = train
 model = brain.model
 
 if (env.train):
-    # INICIAR EL BUCLE DE TODAS LAS …POCAS (1 Epoch = 5 Meses)
+    # INICIAR EL BUCLE DE TODAS LAS √âPOCAS (1 Epoch = 5 Meses)
     for epoch in range(1, number_epochs):
-        # INICIALIZACI”N DE LAS VARIABLES DEL ENTORNO Y DEL BUCLE DE ENTRENAMIENTO
+        # INICIALIZACI√ìN DE LAS VARIABLES DEL ENTORNO Y DEL BUCLE DE ENTRENAMIENTO
         total_reward = 0
         loss = 0.
         new_month = np.random.randint(0, 12)
@@ -54,13 +54,13 @@ if (env.train):
         game_over = False
         current_state, _, _ = env.observe()
         timestep = 0
-        # INICIALIZACI”N DEL BUCLE DE TIMESTEPS (Timestep = 1 minuto) EN UNA EPOCA
+        # INICIALIZACI√ìN DEL BUCLE DE TIMESTEPS (Timestep = 1 minuto) EN UNA EPOCA
         while ((not game_over) and (timestep <= 5*30*24*60)):
-            # EJECUTAR LA SIGUIENTE ACCI”N POR EXPLORACI”N
+            # EJECUTAR LA SIGUIENTE ACCI√ìN POR EXPLORACI√ìN
             if np.random.rand() <= epsilon:
                 action = np.random.randint(0, number_actions)
                    
-            # EJECUTAR LA SIGUIENTE ACCI”N POR INFERENCIA
+            # EJECUTAR LA SIGUIENTE ACCI√ìN POR INFERENCIA
             else: 
                 q_values = model.predict(current_state)
                 action = np.argmax(q_values[0])
@@ -75,13 +75,13 @@ if (env.train):
             next_state, reward, game_over = env.update_env(direction, energy_ai, int(timestep/(30*24*60)))
             total_reward += reward
             
-            # ALMACENAR LA NUEVA TRANSICI”N EN LA MEMORIA
+            # ALMACENAR LA NUEVA TRANSICI√ìN EN LA MEMORIA
             dqn.remember([current_state, action, reward, next_state], game_over)
             
             # OBTENER LOS DOS BLOQUES SEPARADOS DE ENTRADAS Y OBJETIVOS
             inputs, targets = dqn.get_batch(model, batch_size)
             
-            # CALCULAR LA FUNCI”N DE P…RDIDAS UTILIZANDO TODO EL BLOQUE DE ENTRADA Y OBJETIVOS
+            # CALCULAR LA FUNCI√ìN DE P√âRDIDAS UTILIZANDO TODO EL BLOQUE DE ENTRADA Y OBJETIVOS
             loss += model.train_on_batch(inputs, targets)
             timestep += 1
             current_state = next_state
