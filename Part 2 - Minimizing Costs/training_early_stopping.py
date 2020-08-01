@@ -28,7 +28,7 @@ batch_size = 512
 temperature_step = 1.5
 
 # CONSTRUCCIÓN DEL ENTORNO CREANDO UN OBJETO DE LA CLASE ENVIRONMENT
-env = environment.Environtment(optimal_temperature = (18.0, 24.0), initial_month = 0, initial_number_users = 20, initial_rate_data = 30)
+env = environment.Environment(optimal_temperature = (18.0, 24.0), initial_month = 0, initial_number_users = 20, initial_rate_data = 30)
 
 # CONSTRUCCIÓN DEL CEREBRO CREANDO UN OBJETO DE LA CLASE BRAIN
 brain = brain.Brain(learning_rate = 0.00001, number_actions = number_actions)
