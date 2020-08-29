@@ -36,7 +36,7 @@ Pero eso no es todo, esta vez, y por primera vez, hemos preparado una gran innov
 
 ## ¡un libro de 100 páginas que cubre todo lo relacionado con la inteligencia artificial para los negocios!.
 
-## El libro:
+## El [libro](https://joanby.github.io/bookdown-iabusiness/):
 
 ### Este libro incluye:
 
