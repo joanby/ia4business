@@ -1,4 +1,3 @@
-# ia4business
 # Curso de Inteligencia Artificial aplicada a Negocios y Empresas 
 
 ## Descripción
@@ -24,9 +23,9 @@ Aplicaciones comerciales en el mundo real:
 
 Con la inteligencia artificial, puedes hacer principalmente tres cosas para cualquier negocio:
 
-- ### Optimizar los procesos de negocio.
-- ### Minimizar los costes.
-- ### Maximizar los ingresos.
+- Optimizar los procesos de negocio.
+- Minimizar los costes.
+- Maximizar los ingresos.
 Te mostraremos exactamente cómo tener éxito en estas aplicaciones, a través de casos de estudio de negocios del mundo real. Y para cada una de estas aplicaciones construiremos una IA por separado para resolver el desafío.
 
 - En la parte 1 – Optimización de procesos, construiremos una IA que optimizará los flujos de movimiento de un robot automatizado en el interior de un almacén de comercio electrónico.
@@ -57,3 +56,4 @@ Si quieres conseguir un trabajo bien pagado o crear tu propio negocio exitoso en
 - Aspirantes a científicos de datos, buscando formas de analizar casos de negocios y empresas reales para agregar a su portafolio.
 - Entusiastas de la tecnología interesados en aprovechar el Machine Learning y la inteligencia artificial para resolver problemas de negocios
 - Consultores, que quieren hacer la transición de las empresas a negocios digitales impulsados por la IA.
+
